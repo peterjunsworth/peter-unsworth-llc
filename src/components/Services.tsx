@@ -5,11 +5,15 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ExternalLinkIcon, Building2Icon, Code2Icon, UsersIcon } from "lucide-react";
 import { motion } from "motion/react";
 
+// Import images as modules
+import puImage from "../assets/images/pu.jpeg";
+import fedImage from "../assets/images/fed.jpg";
+
 const services = [
   {
     title: "Peter Unsworth LLC",
     description: "Technical Strategy & Consulting",
-    image: "/images/pu.jpeg",
+    image: puImage,
     icon: Building2Icon,
     gradient: "from-slate-700 to-slate-800",
     vibrantGradient: "from-vibrant-teal to-vibrant-cyan",
@@ -27,7 +31,7 @@ const services = [
   {
     title: "Front Edge Digital",
     description: "Digital Innovation & Solutions",
-    image: "/images/fed.jpg",
+    image: fedImage,
     icon: Code2Icon,
     website: "frontedgedigital.com",
     gradient: "from-gray-600 to-slate-700",
