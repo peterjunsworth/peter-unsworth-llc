@@ -33,10 +33,10 @@ const books = [
     color: "from-vibrant-cyan to-vibrant-teal"
   },
   {
-    title: "Into The Woods",
-    author: "John Yorke",
-    description: "Understanding the structure of stories and how they shape our understanding.",
-    category: "Communication", 
+    title: "A Walk In The Woods",
+    author: "Bill Bryson",
+    description: "Rediscovering America on the Appalachian Trail.",
+    category: "Discovery", 
     color: "from-vibrant-teal to-vibrant-orange"
   },
   {
