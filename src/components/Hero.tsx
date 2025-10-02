@@ -858,7 +858,7 @@ export function Hero({ onContactClick }: HeroProps) {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-slate-700 to-slate-800 text-white text-sm mb-6"
           >
             <SparklesIcon className="w-4 h-4 text-vibrant-teal animate-color-shift" />
-            Available for New Projects
+            Available to Chat
             <SparklesIcon className="w-4 h-4 text-vibrant-orange animate-color-shift" />
           </motion.div>
           

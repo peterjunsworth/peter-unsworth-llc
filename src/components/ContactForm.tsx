@@ -259,7 +259,7 @@ export function ContactForm() {
                   <MailIcon className="w-5 h-5 text-slate-600" />
                   <div>
                     <div className="text-sm text-slate-500">Email</div>
-                    <div className="text-sm text-slate-700">peter@peterunsworth.com</div>
+                    <div className="text-sm text-slate-700">peter@peter-unsworth.com</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-slate-50">
