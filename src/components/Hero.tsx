@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { LinkedinIcon, MailIcon, SparklesIcon, RocketIcon } from "lucide-react";
 import { motion } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import logoImage from "../assets/images/logo-square.png";
 
 interface HeroProps {
   onContactClick: () => void;
@@ -833,6 +834,20 @@ export function Hero({ onContactClick }: HeroProps) {
       </svg>
 
       <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center mb-8"
+        >
+          <ImageWithFallback
+            src={logoImage}
+            alt="Peter Unsworth LLC Logo"
+            className="w-20 h-20"
+          />
+        </motion.div>
+        
         <motion.div 
           className="space-y-4"
           initial={{ opacity: 0, y: 50 }}

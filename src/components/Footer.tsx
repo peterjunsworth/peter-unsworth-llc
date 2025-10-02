@@ -1,5 +1,7 @@
 import React from "react";
 import { Separator } from "./ui/separator";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import logoImage from "../assets/images/logo-square.png";
 
 export function Footer() {
   return (
@@ -7,7 +9,14 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8">
           <div className="space-y-3">
-            <h3 className="tracking-tight">Peter Unsworth</h3>
+            <div className="flex items-center gap-3">
+              <ImageWithFallback
+                src={logoImage}
+                alt="Peter Unsworth LLC Logo"
+                className="w-20 h-20 rounded-lg"
+              />
+              <h3 className="tracking-tight">Peter Unsworth</h3>
+            </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Technical Strategy & Consulting at the intersection of business requirements 
               and technical excellence.
