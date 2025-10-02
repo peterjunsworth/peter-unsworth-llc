@@ -28,7 +28,7 @@ export default function App() {
             <Button
               variant="outline"
               onClick={() => setShowContactForm(false)}
-              className="bg-white/90 backdrop-blur-sm border-slate-200 hover:bg-white"
+              className="bg-white/90 backdrop-blur-sm border-slate-200"
             >
               <ArrowLeftIcon className="mr-2 h-4 w-4" />
               Back to Home

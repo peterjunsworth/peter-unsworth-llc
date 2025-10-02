@@ -179,13 +179,13 @@ export function ContactForm() {
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="technical-strategy" className="hover:text-slate-800">Technical Strategy & Consulting</SelectItem>
-                          <SelectItem value="talent-recruitment" className="hover:text-slate-800">Talent Recruitment</SelectItem>
-                          <SelectItem value="team-augmentation" className="hover:text-slate-800">Team Augmentation</SelectItem>
-                          <SelectItem value="digital-transformation" className="hover:text-slate-800">Digital Transformation</SelectItem>
-                          <SelectItem value="front-edge-digital" className="hover:text-slate-800">Front Edge Digital Services</SelectItem>
-                          <SelectItem value="devs-for-code" className="hover:text-slate-800">Dev's For Code Solutions</SelectItem>
-                          <SelectItem value="other" className="hover:text-slate-800">Other</SelectItem>
+                          <SelectItem value="technical-strategy" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Technical Strategy & Consulting</SelectItem>
+                          <SelectItem value="talent-recruitment" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Talent Recruitment</SelectItem>
+                          <SelectItem value="team-augmentation" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Team Augmentation</SelectItem>
+                          <SelectItem value="digital-transformation" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Digital Transformation</SelectItem>
+                          <SelectItem value="front-edge-digital" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Front Edge Digital Services</SelectItem>
+                          <SelectItem value="devs-for-code" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Dev's For Code Solutions</SelectItem>
+                          <SelectItem value="other" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Other</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
