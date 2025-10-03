@@ -191,6 +191,10 @@ dist
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
+# Allow favicon files in public directory
+!public/favicon*
+!public/site.webmanifest
+
 # Storybook build outputs
 .out
 .storybook-out
