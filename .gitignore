@@ -194,6 +194,7 @@ dist
 # Allow favicon files in public directory
 !public/favicon*
 !public/site.webmanifest
+!public/sitemap.xml
 
 # Storybook build outputs
 .out
