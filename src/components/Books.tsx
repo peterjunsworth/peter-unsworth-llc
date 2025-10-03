@@ -26,7 +26,7 @@ const books = [
     color: "from-vibrant-purple to-vibrant-purple-light"
   },
   {
-    title: "Upstarts",
+    title: "The Upstarts",
     author: "Brad Stone",
     description: "The story of Uber, Airbnb and how technology is changing everything.",
     category: "Technology",
