@@ -3,6 +3,7 @@ import { Hero } from "./components/Hero";
 import { Services } from "./components/Services";
 import { About } from "./components/About";
 import { Books } from "./components/Books";
+import { LinkedInArticles } from "./components/LinkedInArticles";
 import { Contact } from "./components/Contact";
 import { ContactForm } from "./components/ContactForm";
 import { Footer } from "./components/Footer";
@@ -28,7 +29,7 @@ export default function App() {
             <Button
               variant="outline"
               onClick={() => setShowContactForm(false)}
-              className="bg-white/90 backdrop-blur-sm border-slate-200"
+              className="bg-white/90 backdrop-blur-sm border-slate-200 hover:text-slate-800 hover:bg-white/95"
             >
               <ArrowLeftIcon className="mr-2 h-4 w-4" />
               Back to Home
@@ -49,6 +50,7 @@ export default function App() {
       <Services />
       <About />
       <Books />
+      <LinkedInArticles />
       <Contact onContactClick={() => setShowContactForm(true)} />
       <Footer />
       <Toaster />

@@ -9,58 +9,74 @@ const books = [
     author: "Phil Knight",
     description: "A memoir about building Nike from the ground up - a testament to perseverance and vision.",
     category: "Entrepreneurship",
-    color: "from-vibrant-teal to-vibrant-cyan"
+    color: "from-vibrant-teal to-vibrant-cyan",
+    rating: 5
   },
   {
     title: "A Ride of a Lifetime", 
     author: "Bob Iger",
     description: "Leadership lessons from Disney's former CEO on navigating change and innovation.",
     category: "Leadership",
-    color: "from-vibrant-orange to-vibrant-orange-light"
+    color: "from-vibrant-orange to-vibrant-orange-light",
+    rating: 5
   },
   {
     title: "Green Lights",
     author: "Matthew McConaughey", 
     description: "Life philosophy and wisdom about turning obstacles into opportunities.",
     category: "Personal Growth",
-    color: "from-vibrant-purple to-vibrant-purple-light"
+    color: "from-vibrant-purple to-vibrant-purple-light",
+    rating: 5
   },
   {
     title: "The Upstarts",
     author: "Brad Stone",
     description: "The story of Uber, Airbnb and how technology is changing everything.",
     category: "Technology",
-    color: "from-vibrant-cyan to-vibrant-teal"
+    color: "from-vibrant-cyan to-vibrant-teal",
+    rating: 5
   },
   {
-    title: "A Walk In The Woods",
-    author: "Bill Bryson",
-    description: "Rediscovering America on the Appalachian Trail.",
-    category: "Discovery", 
-    color: "from-vibrant-teal to-vibrant-orange"
-  },
-  {
-    title: "Originals",
-    author: "Adam Grant",
-    description: "How nonconformists move the world through innovative thinking.",
-    category: "Innovation",
-    color: "from-vibrant-orange to-vibrant-purple"
+    title: "Outliers",
+    author: "Malcolm Gladwell",
+    description: "A seminal work exploring what sets high achievers apart, from Bill Gates to the Beatles, revealing the hidden patterns behind success.",
+    category: "Psychology",
+    color: "from-vibrant-purple to-vibrant-orange",
+    rating: 5
   },
   {
     title: "Becoming",
     author: "Michelle Obama",
     description: "A powerful memoir about growth, resilience, and finding your voice.",
     category: "Inspiration",
-    color: "from-vibrant-purple to-vibrant-cyan"
+    color: "from-vibrant-purple to-vibrant-cyan",
+    rating: 4
   },
   {
     title: "A Promised Land",
     author: "Barack Obama",
     description: "Presidential memoirs offering insights into leadership during challenging times.",
     category: "Leadership",
-    color: "from-vibrant-cyan to-vibrant-orange"
+    color: "from-vibrant-cyan to-vibrant-orange",
+    rating: 4
+  },
+  {
+    title: "Originals",
+    author: "Adam Grant",
+    description: "How nonconformists move the world through innovative thinking.",
+    category: "Innovation",
+    color: "from-vibrant-orange to-vibrant-purple",
+    rating: 4
+  },
+  {
+    title: "A Walk In The Woods",
+    author: "Bill Bryson",
+    description: "Rediscovering America on the Appalachian Trail.",
+    category: "Discovery", 
+    color: "from-vibrant-teal to-vibrant-orange",
+    rating: 3.5
   }
-];
+].sort((a, b) => b.rating - a.rating);
 
 export function Books() {
   return (
@@ -123,7 +139,7 @@ export function Books() {
         </motion.div>
 
         {/* Books Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {books.map((book, index) => (
             <motion.div
               key={book.title}
@@ -167,16 +183,39 @@ export function Books() {
                     </p>
                   </div>
                   
-                  {/* Read More Indicator */}
+                  {/* Rating Stars */}
                   <motion.div
                     className="flex items-center gap-2 text-xs text-gray-400 group-hover:text-gray-600 transition-colors"
                     whileHover={{ x: 5 }}
                   >
-                    <span>Highly recommended</span>
+                    <span>{book.rating === 5 ? 'Highly recommended' : `${book.rating}/5 stars`}</span>
                     <div className="flex gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <StarIcon key={i} className="h-3 w-3 fill-vibrant-orange text-vibrant-orange" />
-                      ))}
+                      {[...Array(5)].map((_, i) => {
+                        const starValue = i + 1;
+                        const isHalfStar = book.rating % 1 !== 0 && starValue === Math.ceil(book.rating);
+                        const isFilled = starValue <= Math.floor(book.rating);
+                        
+                        return (
+                          <div key={i} className="relative">
+                            {/* Background star (always gray) */}
+                            <StarIcon className="h-3 w-3 text-gray-300" />
+                            
+                            {/* Half star overlay */}
+                            {isHalfStar && (
+                              <div className="absolute inset-0 overflow-hidden" style={{ width: '50%' }}>
+                                <StarIcon className="h-3 w-3 fill-vibrant-orange text-vibrant-orange" />
+                              </div>
+                            )}
+                            
+                            {/* Full star overlay */}
+                            {isFilled && !isHalfStar && (
+                              <div className="absolute inset-0">
+                                <StarIcon className="h-3 w-3 fill-vibrant-orange text-vibrant-orange" />
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
                   </motion.div>
                 </CardContent>
