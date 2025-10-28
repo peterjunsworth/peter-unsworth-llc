@@ -175,7 +175,7 @@ export function LinkedInArticles() {
               </div>
               
               <motion.a
-                href="https://www.linkedin.com/in/peterjunsworth"
+                href="https://www.linkedin.com/in/peterunsworth"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-vibrant-cyan to-vibrant-purple text-white rounded-lg hover:from-vibrant-purple hover:to-vibrant-cyan transition-all duration-300 font-medium"

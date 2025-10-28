@@ -94,7 +94,7 @@ export function Contact({ onContactClick }: ContactProps) {
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button 
                     variant="outline" 
-                    onClick={() => window.open('https://www.linkedin.com/in/peterjunsworth/', '_blank')}
+                    onClick={() => window.open('https://www.linkedin.com/in/peterunsworth/', '_blank')}
                     className="w-full border-2 border-vibrant-purple hover:border-vibrant-purple hover:text-vibrant-purple transition-all duration-300" 
                     size="lg"
                   >
