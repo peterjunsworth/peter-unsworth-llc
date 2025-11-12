@@ -46,13 +46,27 @@ export default function App() {
   return (
     <div className="min-h-screen relative">
       <AnimatedBackground />
-      <Hero onContactClick={() => setShowContactForm(true)} />
-      <Services />
-      <About />
-      <Books />
-      <LinkedInArticles />
-      <Contact onContactClick={() => setShowContactForm(true)} />
-      <Footer />
+      <section id="hero">
+        <Hero onContactClick={() => setShowContactForm(true)} />
+      </section>
+      <section id="services">
+        <Services />
+      </section>
+      <section id="about">
+        <About />
+      </section>
+      <section id="books">
+        <Books />
+      </section>
+      <section id="articles">
+        <LinkedInArticles />
+      </section>
+      <section id="contact">
+        <Contact onContactClick={() => setShowContactForm(true)} />
+      </section>
+      <footer id="footer">
+        <Footer />
+      </footer>
       <Toaster />
     </div>
   );
