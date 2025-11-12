@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Hero } from "./components/Hero";
 import { Services } from "./components/Services";
 import { About } from "./components/About";
@@ -15,6 +15,34 @@ import { Toaster } from "./components/ui/sonner";
 
 export default function App() {
   const [showContactForm, setShowContactForm] = useState(false);
+
+  useEffect(() => {
+    const scrollToHash = () => {
+      const { hash } = window.location;
+      if (!hash) return;
+      const targetId = hash.replace("#", "");
+      const targetElement = document.getElementById(targetId);
+      if (!targetElement) return;
+
+      requestAnimationFrame(() => {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+    };
+
+    const handleHashChange = () => {
+      requestAnimationFrame(scrollToHash);
+    };
+
+    scrollToHash();
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
 
   if (showContactForm) {
     return (
@@ -46,22 +74,22 @@ export default function App() {
   return (
     <div className="min-h-screen relative">
       <AnimatedBackground />
-      <section id="hero">
+      <section id="hero" className="scroll-mt-24">
         <Hero onContactClick={() => setShowContactForm(true)} />
       </section>
-      <section id="services">
+      <section id="services" className="scroll-mt-24">
         <Services />
       </section>
-      <section id="about">
+      <section id="about" className="scroll-mt-24">
         <About />
       </section>
-      <section id="books">
+      <section id="books" className="scroll-mt-24">
         <Books />
       </section>
-      <section id="articles">
+      <section id="articles" className="scroll-mt-24">
         <LinkedInArticles />
       </section>
-      <section id="contact">
+      <section id="contact" className="scroll-mt-24">
         <Contact onContactClick={() => setShowContactForm(true)} />
       </section>
       <footer id="footer">
