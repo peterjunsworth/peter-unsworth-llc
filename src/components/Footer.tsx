@@ -27,8 +27,26 @@ export function Footer() {
             <h4 className="text-sm">Companies</h4>
             <div className="space-y-2 text-sm text-muted-foreground">
               <div>Peter Unsworth LLC</div>
-              <div>Front Edge Digital</div>
-              <div>Dev's For Code</div>
+              <div>
+                <a
+                  href="https://frontedgedigital.com"
+                  className="hover:text-foreground transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Front Edge Digital
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://devsforcode.com"
+                  className="hover:text-foreground transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Dev's For Code
+                </a>
+              </div>
             </div>
           </div>
           
