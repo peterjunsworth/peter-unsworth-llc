@@ -53,6 +53,14 @@ export function Footer() {
             <a href="https://www.linkedin.com/in/peterunsworth/" className="hover:text-foreground transition-colors">
               LinkedIn
             </a>
+            <a
+              href="https://www.youtube.com/@knowenoughstuff"
+              className="hover:text-foreground transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              YouTube
+            </a>
             <a href="https://frontedgedigital.com" className="hover:text-foreground transition-colors">
               Front Edge Digital
             </a>
