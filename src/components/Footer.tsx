@@ -39,14 +39,26 @@ export function Footer() {
               <div>Talent Recruitment</div>
               <div>Digital Solutions</div>
               <div>Team Augmentation</div>
-              <a
-                href="https://www.joesalowitz.com/"
-                className="hover:text-foreground transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Product Strategy
-              </a>
+              <div>
+                <a
+                  href="https://www.joesalowitz.com/"
+                  className="hover:text-foreground transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Product Strategy
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://paradoxcomms.com/"
+                  className="hover:text-foreground transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Marketing Plans
+                </a>
+              </div>
             </div>
           </div>
         </div>
