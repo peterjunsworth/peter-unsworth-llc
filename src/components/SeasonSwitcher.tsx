@@ -45,7 +45,12 @@ export function SeasonSwitcher({ season, onSeasonChange }: SeasonSwitcherProps) 
         >
           <SelectValue placeholder="Select season" />
         </SelectTrigger>
-        <SelectContent className="bg-white dark:bg-slate-800">
+        <SelectContent 
+          className="!bg-white dark:!bg-black"
+          style={{
+            backgroundColor: isDark ? '#000000' : '#ffffff',
+          }}
+        >
           <SelectItem 
             value="winter"
             className="text-slate-900 dark:text-slate-50 hover:text-slate-900 dark:hover:text-slate-100 focus:text-slate-900 dark:focus:text-slate-100"
