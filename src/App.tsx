@@ -10,10 +10,12 @@ import { Footer } from "./components/Footer";
 import { AnimatedBackground } from "./components/AnimatedBackground";
 import { SeasonalEffects, getSeason, type Season } from "./components/SeasonalEffects";
 import { SeasonSwitcher } from "./components/SeasonSwitcher";
+import { ThemeToggle } from "./components/ThemeToggle";
 import { Button } from "./components/ui/button";
 import { ArrowLeftIcon } from "lucide-react";
 import { motion } from "motion/react";
 import { Toaster } from "./components/ui/sonner";
+import { useTheme } from "next-themes";
 
 export default function App() {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -47,13 +49,19 @@ export default function App() {
     };
   }, []);
 
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   if (showContactForm) {
     return (
-      <div className="min-h-screen relative">
+      <div className="min-h-screen relative bg-background text-foreground">
         <AnimatedBackground />
         <SeasonalEffects season={season} />
         <SeasonSwitcher season={season} onSeasonChange={setSeason} />
-        <div className="fixed top-4 left-4 z-50">
+        <div className="fixed top-4 z-50" style={{ left: '1rem' }}>
+          <ThemeToggle />
+        </div>
+        <div className="fixed top-4 z-50" style={{ left: 'calc(1rem + 50px)' }}>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -62,7 +70,16 @@ export default function App() {
             <Button
               variant="outline"
               onClick={() => setShowContactForm(false)}
-              className="bg-white/90 backdrop-blur-sm border-slate-200 hover:text-slate-800 hover:bg-white/95"
+              className="bg-white/90 backdrop-blur-sm border-slate-200 dark:border-slate-700 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-white/95 text-foreground"
+              style={{
+                backgroundColor: isDark ? 'transparent' : 'rgba(255, 255, 255, 0.9)',
+                color: isDark ? '#f1f5f9' : undefined,
+              }}
+              onMouseEnter={(e) => {
+                if (isDark) {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                }
+              }}
             >
               <ArrowLeftIcon className="mr-2 h-4 w-4" />
               Back to Home
@@ -77,10 +94,13 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative bg-background text-foreground">
       <AnimatedBackground />
       <SeasonalEffects season={season} />
       <SeasonSwitcher season={season} onSeasonChange={setSeason} />
+      <div className="fixed top-4 z-50" style={{ left: '1rem' }}>
+        <ThemeToggle />
+      </div>
       <section id="hero" className="scroll-mt-24">
         <Hero onContactClick={() => setShowContactForm(true)} />
       </section>

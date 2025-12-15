@@ -8,8 +8,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { MailIcon, SendIcon, CheckCircleIcon, AlertCircleIcon, MessageCircleIcon } from "lucide-react";
 import { motion } from "motion/react";
 import { toast } from "sonner";
+import { useTheme } from "next-themes";
 
 export function ContactForm() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -75,7 +78,7 @@ export function ContactForm() {
   return (
     <section className="py-20 px-4 min-h-screen relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-slate-50 to-slate-100" />
+      <div className="absolute inset-0 bg-slate-900 dark:bg-slate-50" />
       
       {/* Floating elements */}
       <motion.div
@@ -97,7 +100,7 @@ export function ContactForm() {
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-slate-700 to-slate-800 text-white text-sm shadow-lg"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-slate-700 to-slate-800 dark:from-slate-200 dark:to-slate-300 text-white dark:text-slate-900 text-sm shadow-lg"
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 3, repeat: Infinity }}
           >
@@ -106,10 +109,10 @@ export function ContactForm() {
             <MessageCircleIcon className="w-4 h-4" />
           </motion.div>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight bg-gradient-to-r from-slate-800 via-slate-700 to-slate-900 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight text-slate-800 dark:text-slate-100">
             Contact Me
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto" style={{ color: isDark ? '#ffffff' : '#4b5563' }}>
             Ready to discuss your technical strategy, talent needs, or digital transformation? 
             Fill out the form below and I'll get back to you within 24 hours.
           </p>
@@ -123,13 +126,13 @@ export function ContactForm() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Card className="bg-white/95 backdrop-blur-sm border-0 shadow-xl">
+            <Card className="bg-transparent backdrop-blur-sm border-0 shadow-xl">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-slate-800">
-                  <MailIcon className="w-5 h-5 text-slate-600" />
+                <CardTitle className="flex items-center gap-2" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>
+                  <MailIcon className="w-5 h-5" style={{ color: isDark ? '#cbd5e1' : '#475569' }} />
                   Send a Message
                 </CardTitle>
-                <CardDescription>
+                <CardDescription style={{ color: isDark ? '#ffffff' : '#4b5563' }}>
                   Please provide details about your project or inquiry
                 </CardDescription>
               </CardHeader>
@@ -137,18 +140,18 @@ export function ContactForm() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Full Name *</Label>
+                      <Label htmlFor="name" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Full Name *</Label>
                       <Input
                         id="name"
                         value={formData.name}
                         onChange={(e) => handleChange('name', e.target.value)}
                         placeholder="Your full name"
                         required
-                        className="border-slate-200 focus:border-slate-400 focus:ring-slate-200"
+                        className="border-slate-200 dark:border-slate-600 focus:border-slate-400 dark:focus:border-slate-400 focus:ring-slate-200 dark:focus:ring-slate-400 dark:bg-slate-700 dark:text-slate-50"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email Address *</Label>
+                      <Label htmlFor="email" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Email Address *</Label>
                       <Input
                         id="email"
                         type="email"
@@ -156,55 +159,55 @@ export function ContactForm() {
                         onChange={(e) => handleChange('email', e.target.value)}
                         placeholder="your.email@company.com"
                         required
-                        className="border-slate-200 focus:border-slate-400 focus:ring-slate-200"
+                        className="border-slate-200 dark:border-slate-600 focus:border-slate-400 dark:focus:border-slate-400 focus:ring-slate-200 dark:focus:ring-slate-400 dark:bg-slate-700 dark:text-slate-50"
                       />
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="company">Company</Label>
+                      <Label htmlFor="company" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Company</Label>
                       <Input
                         id="company"
                         value={formData.company}
                         onChange={(e) => handleChange('company', e.target.value)}
                         placeholder="Your company name"
-                        className="border-slate-200 focus:border-slate-400 focus:ring-slate-200"
+                        className="border-slate-200 dark:border-slate-600 focus:border-slate-400 dark:focus:border-slate-400 focus:ring-slate-200 dark:focus:ring-slate-400 dark:bg-slate-700 dark:text-slate-50"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="serviceType">Service Interest</Label>
+                      <Label htmlFor="serviceType" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Service Interest</Label>
                       <Select value={formData.serviceType} onValueChange={(value) => handleChange('serviceType', value)}>
-                        <SelectTrigger className="border-slate-200 focus:border-slate-400 focus:ring-slate-200">
+                        <SelectTrigger className="border-slate-200 dark:border-slate-600 focus:border-slate-400 dark:focus:border-slate-400 focus:ring-slate-200 dark:focus:ring-slate-400 dark:bg-slate-700 dark:text-slate-50 text-slate-700 hover:text-slate-900 focus:text-slate-900 dark:hover:text-slate-50 dark:focus:text-slate-50">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="technical-strategy" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Technical Strategy & Consulting</SelectItem>
-                          <SelectItem value="talent-recruitment" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Talent Recruitment</SelectItem>
-                          <SelectItem value="team-augmentation" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Team Augmentation</SelectItem>
-                          <SelectItem value="digital-transformation" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Digital Transformation</SelectItem>
-                          <SelectItem value="front-edge-digital" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Front Edge Digital Services</SelectItem>
-                          <SelectItem value="devs-for-code" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Dev's For Code Solutions</SelectItem>
-                          <SelectItem value="other" className="text-slate-700 hover:text-slate-900 focus:text-slate-900">Other</SelectItem>
+                        <SelectContent className="bg-white dark:bg-slate-800">
+                          <SelectItem value="technical-strategy" className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 focus:text-slate-900 dark:focus:text-slate-100">Technical Strategy & Consulting</SelectItem>
+                          <SelectItem value="talent-recruitment" className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 focus:text-slate-900 dark:focus:text-slate-100">Talent Recruitment</SelectItem>
+                          <SelectItem value="team-augmentation" className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 focus:text-slate-900 dark:focus:text-slate-100">Team Augmentation</SelectItem>
+                          <SelectItem value="digital-transformation" className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 focus:text-slate-900 dark:focus:text-slate-100">Digital Transformation</SelectItem>
+                          <SelectItem value="front-edge-digital" className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 focus:text-slate-900 dark:focus:text-slate-100">Front Edge Digital Services</SelectItem>
+                          <SelectItem value="devs-for-code" className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 focus:text-slate-900 dark:focus:text-slate-100">Dev's For Code Solutions</SelectItem>
+                          <SelectItem value="other" className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 focus:text-slate-900 dark:focus:text-slate-100">Other</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="subject">Subject *</Label>
+                    <Label htmlFor="subject" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Subject *</Label>
                     <Input
                       id="subject"
                       value={formData.subject}
                       onChange={(e) => handleChange('subject', e.target.value)}
                       placeholder="Brief subject line"
                       required
-                      className="border-slate-200 focus:border-slate-400 focus:ring-slate-200"
+                      className="border-slate-200 dark:border-slate-600 focus:border-slate-400 dark:focus:border-slate-400 focus:ring-slate-200 dark:focus:ring-slate-400 dark:bg-slate-700 dark:text-slate-50"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message *</Label>
+                    <Label htmlFor="message" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Message *</Label>
                     <Textarea
                       id="message"
                       value={formData.message}
@@ -212,7 +215,7 @@ export function ContactForm() {
                       placeholder="Please describe your project, requirements, or inquiry in detail..."
                       required
                       rows={6}
-                      className="border-slate-200 focus:border-slate-400 focus:ring-slate-200 resize-none"
+                      className="border-slate-200 dark:border-slate-600 focus:border-slate-400 dark:focus:border-slate-400 focus:ring-slate-200 dark:focus:ring-slate-400 dark:bg-slate-700 dark:text-slate-50 resize-none"
                     />
                   </div>
 
@@ -221,7 +224,7 @@ export function ContactForm() {
                       type="submit"
                       size="lg"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-slate-700 to-slate-800 hover:from-slate-800 hover:to-slate-900 text-white border-0"
+                      className="w-full bg-gradient-to-r from-slate-700 to-slate-800 dark:from-slate-200 dark:to-slate-300 hover:from-slate-800 hover:to-slate-900 dark:hover:from-slate-300 dark:hover:to-slate-400 text-white dark:text-slate-900 border-0"
                     >
                       {isSubmitting ? (
                         <motion.div
@@ -247,79 +250,79 @@ export function ContactForm() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Card className="bg-white/95 backdrop-blur-sm border-0 shadow-xl">
+            <Card className="bg-transparent backdrop-blur-sm border-0 shadow-xl">
               <CardHeader>
-                <CardTitle className="text-slate-800">Direct Contact</CardTitle>
-                <CardDescription>
+                <CardTitle style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Direct Contact</CardTitle>
+                <CardDescription style={{ color: isDark ? '#ffffff' : '#4b5563' }}>
                   Prefer a more direct approach? Reach out via these channels.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-slate-50">
-                  <MailIcon className="w-5 h-5 text-slate-600" />
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-transparent">
+                  <MailIcon className="w-5 h-5" style={{ color: isDark ? '#cbd5e1' : '#475569' }} />
                   <div>
-                    <div className="text-sm text-slate-500">Email</div>
-                    <div className="text-sm text-slate-700">peter@peter-unsworth.com</div>
+                    <div className="text-sm" style={{ color: isDark ? '#cbd5e1' : '#6b7280' }}>Email</div>
+                    <div className="text-sm" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>peter@peter-unsworth.com</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-slate-50">
-                  <div className="w-5 h-5 rounded bg-slate-600 flex items-center justify-center">
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-transparent">
+                  <div className="w-5 h-5 rounded flex items-center justify-center" style={{ backgroundColor: isDark ? '#475569' : '#475569' }}>
                     <span className="text-white text-xs">in</span>
                   </div>
                   <div>
-                    <div className="text-sm text-slate-500">LinkedIn</div>
-                    <div className="text-sm text-slate-700">@peterunsworth</div>
+                    <div className="text-sm" style={{ color: isDark ? '#cbd5e1' : '#6b7280' }}>LinkedIn</div>
+                    <div className="text-sm" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>@peterunsworth</div>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-white/95 backdrop-blur-sm border-0 shadow-xl">
+            <Card className="bg-transparent backdrop-blur-sm border-0 shadow-xl">
               <CardHeader>
-                <CardTitle className="text-slate-800">Response Time</CardTitle>
+                <CardTitle style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Response Time</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <CheckCircleIcon className="w-4 h-4 text-green-600" />
-                    <span className="text-sm">Typically respond within 24 hours</span>
+                    <CheckCircleIcon className="w-4 h-4" style={{ color: isDark ? '#34d399' : '#059669' }} />
+                    <span className="text-sm" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Typically respond within 24 hours</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircleIcon className="w-4 h-4 text-green-600" />
-                    <span className="text-sm">Available for urgent consultations</span>
+                    <CheckCircleIcon className="w-4 h-4" style={{ color: isDark ? '#34d399' : '#059669' }} />
+                    <span className="text-sm" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Available for urgent consultations</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircleIcon className="w-4 h-4 text-green-600" />
-                    <span className="text-sm">Free initial consultation calls</span>
+                    <CheckCircleIcon className="w-4 h-4" style={{ color: isDark ? '#34d399' : '#059669' }} />
+                    <span className="text-sm" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Free initial consultation calls</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-white/95 backdrop-blur-sm border-0 shadow-xl">
+            <Card className="bg-transparent backdrop-blur-sm border-0 shadow-xl">
               <CardHeader>
-                <CardTitle className="text-slate-800">My Companies</CardTitle>
+                <CardTitle style={{ color: isDark ? '#ffffff' : '#1f2937' }}>My Companies</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <motion.a 
                   href="https://frontedgedigital.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-3 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors"
+                  className="block p-3 rounded-lg bg-transparent hover:opacity-80 transition-opacity"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="text-sm text-slate-700">Front Edge Digital</div>
-                  <div className="text-xs text-slate-500">Digital Solutions & Strategy</div>
+                  <div className="text-sm" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Front Edge Digital</div>
+                  <div className="text-xs" style={{ color: isDark ? '#cbd5e1' : '#6b7280' }}>Digital Solutions & Strategy</div>
                 </motion.a>
                 <motion.a 
                   href="https://devsforcode.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-3 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors"
+                  className="block p-3 rounded-lg bg-transparent hover:opacity-80 transition-opacity"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="text-sm text-slate-700">Dev's For Code</div>
-                  <div className="text-xs text-slate-500">Developer Talent & Teams</div>
+                  <div className="text-sm" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>Dev's For Code</div>
+                  <div className="text-xs" style={{ color: isDark ? '#cbd5e1' : '#6b7280' }}>Developer Talent & Teams</div>
                 </motion.a>
               </CardContent>
             </Card>

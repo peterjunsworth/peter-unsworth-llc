@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme } from "next-themes";
 import { Card, CardContent } from "./ui/card";
 import { BookOpenIcon, StarIcon, QuoteIcon } from "lucide-react";
 import { motion } from "motion/react";
@@ -79,10 +80,13 @@ const books = [
 ].sort((a, b) => b.rating - a.rating);
 
 export function Books() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  
   return (
     <section className="py-20 px-4 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-slate-50 to-blue-50/30" />
+      <div className="absolute inset-0 bg-slate-900 dark:bg-slate-50" />
       
       {/* Floating elements */}
       <motion.div
@@ -113,19 +117,20 @@ export function Books() {
             >
               <BookOpenIcon className="h-6 w-6 text-white" />
             </motion.div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight bg-gradient-to-r from-slate-800 via-gray-700 to-slate-900 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight text-slate-800 dark:text-slate-100">
               Recommended Reading
             </h2>
           </div>
           
           <div className="max-w-3xl mx-auto space-y-4">
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-slate-700 dark:text-slate-200 leading-relaxed">
               Books that have shaped my perspective on business, leadership, and life. 
               These carefully selected reads offer insights that transcend industries and inspire personal growth.
             </p>
             
             <motion.div 
-              className="flex items-center justify-center gap-2 text-sm text-gray-500"
+              className="flex items-center justify-center gap-2 text-sm"
+              style={{ color: isDark ? '#cbd5e1' : '#6b7280' }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -150,7 +155,7 @@ export function Books() {
               whileHover={{ y: -10, scale: 1.02 }}
               className="h-full"
             >
-              <Card className="h-full hover:shadow-2xl transition-all duration-500 bg-white/90 backdrop-blur-sm border-0 overflow-hidden group">
+              <Card className="h-full hover:shadow-2xl transition-all duration-500 bg-transparent backdrop-blur-sm border-0 dark:border-slate-700 overflow-hidden group">
                 <CardContent className="p-6 space-y-4 h-full flex flex-col">
                   {/* Category Badge */}
                   <motion.div
@@ -172,20 +177,21 @@ export function Books() {
                   {/* Book Info */}
                   <div className="space-y-3 flex-grow">
                     <div>
-                      <h3 className="text-lg text-gray-800 group-hover:text-gray-900 transition-colors">
+                      <h3 className="text-lg transition-colors" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>
                         {book.title}
                       </h3>
-                      <p className="text-sm text-gray-500">by {book.author}</p>
+                      <p className="text-sm" style={{ color: isDark ? '#cbd5e1' : '#6b7280' }}>by {book.author}</p>
                     </div>
                     
-                    <p className="text-sm text-gray-600 leading-relaxed flex-grow">
+                    <p className="text-sm leading-relaxed flex-grow" style={{ color: isDark ? '#ffffff' : '#4b5563' }}>
                       {book.description}
                     </p>
                   </div>
                   
                   {/* Rating Stars */}
                   <motion.div
-                    className="flex items-center gap-2 text-xs text-gray-400 group-hover:text-gray-600 transition-colors"
+                    className="flex items-center gap-2 text-xs transition-colors"
+                    style={{ color: isDark ? '#cbd5e1' : '#9ca3af' }}
                     whileHover={{ x: 5 }}
                   >
                     <span>{book.rating === 5 ? 'Highly recommended' : `${book.rating}/5 stars`}</span>
@@ -198,7 +204,7 @@ export function Books() {
                         return (
                           <div key={i} className="relative">
                             {/* Background star (always gray) */}
-                            <StarIcon className="h-3 w-3 text-gray-300" />
+                            <StarIcon className="h-3 w-3 text-gray-300 dark:text-gray-600" />
                             
                             {/* Half star overlay */}
                             {isHalfStar && (
@@ -232,7 +238,7 @@ export function Books() {
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <Card className="max-w-4xl mx-auto p-8 bg-gradient-to-br from-white/95 to-slate-50/95 backdrop-blur-sm border-0 shadow-xl">
+          <Card className="max-w-4xl mx-auto p-8 bg-transparent backdrop-blur-sm border-0 dark:border-slate-700 shadow-xl">
             <CardContent className="p-0 space-y-4">
               <motion.div
                 className="w-16 h-16 mx-auto bg-gradient-to-r from-vibrant-teal to-vibrant-purple rounded-full flex items-center justify-center"
@@ -242,13 +248,13 @@ export function Books() {
                 <QuoteIcon className="h-8 w-8 text-white" />
               </motion.div>
               
-              <blockquote className="text-lg md:text-xl text-gray-700 italic leading-relaxed">
+              <blockquote className="text-lg md:text-xl italic leading-relaxed" style={{ color: isDark ? '#ffffff' : '#374151' }}>
                 "Reading is not just about gaining knowledge—it's about expanding perspectives, 
                 challenging assumptions, and building the mental frameworks that drive innovation 
                 and strategic thinking."
               </blockquote>
               
-              <cite className="text-sm text-gray-500 not-italic">
+              <cite className="text-sm not-italic" style={{ color: isDark ? '#cbd5e1' : '#6b7280' }}>
                 — Peter Unsworth
               </cite>
             </CardContent>

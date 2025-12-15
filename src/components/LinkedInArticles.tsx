@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme } from "next-themes";
 import { Card, CardContent } from "./ui/card";
 import { ExternalLinkIcon, CalendarIcon, ThumbsUpIcon } from "lucide-react";
 import { motion } from "motion/react";
@@ -39,10 +40,13 @@ const articles = [
 ];
 
 export function LinkedInArticles() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  
   return (
     <section className="py-20 px-4 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50" />
+      <div className="absolute inset-0 bg-slate-900 dark:bg-slate-50" />
       
       {/* Floating elements */}
       <motion.div
@@ -73,13 +77,13 @@ export function LinkedInArticles() {
             >
               <ExternalLinkIcon className="h-6 w-6 text-white" />
             </motion.div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight bg-gradient-to-r from-slate-800 via-gray-700 to-slate-900 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight text-slate-800 dark:text-slate-100">
               Latest Articles
             </h2>
           </div>
           
           <div className="max-w-3xl mx-auto space-y-4">
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-slate-700 dark:text-slate-200 leading-relaxed">
               Insights on leadership, entrepreneurship, and professional development. 
               Read my latest thoughts on building effective teams and navigating modern business challenges.
             </p>
@@ -98,7 +102,7 @@ export function LinkedInArticles() {
               whileHover={{ y: -5, scale: 1.02 }}
               className="h-full"
             >
-              <Card className="h-full hover:shadow-2xl transition-all duration-500 bg-white/90 backdrop-blur-sm border-0 overflow-hidden group">
+              <Card className="h-full hover:shadow-2xl transition-all duration-500 bg-transparent backdrop-blur-sm border-0 dark:border-slate-700 overflow-hidden group">
                 <CardContent className="p-6 space-y-4 h-full flex flex-col">
                   {/* Category Badge */}
                   <motion.div
@@ -112,10 +116,10 @@ export function LinkedInArticles() {
                   {/* Article Content */}
                   <div className="space-y-4 flex-grow">
                     <div>
-                      <h3 className="text-xl text-gray-800 group-hover:text-gray-900 transition-colors leading-tight">
+                      <h3 className="text-xl transition-colors leading-tight" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>
                         {article.title}
                       </h3>
-                      <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
+                      <div className="flex items-center gap-4 mt-2 text-sm" style={{ color: isDark ? '#cbd5e1' : '#6b7280' }}>
                         <span>{article.date}</span>
                         <div className="flex items-center gap-1">
                           <ThumbsUpIcon className="h-4 w-4" />
@@ -124,7 +128,7 @@ export function LinkedInArticles() {
                       </div>
                     </div>
                     
-                    <p className="text-gray-600 leading-relaxed flex-grow">
+                    <p className="leading-relaxed flex-grow" style={{ color: isDark ? '#ffffff' : '#4b5563' }}>
                       {article.excerpt}
                     </p>
                   </div>
@@ -134,7 +138,8 @@ export function LinkedInArticles() {
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-vibrant-cyan hover:text-vibrant-purple transition-colors group/link"
+                    className="inline-flex items-center gap-2 hover:opacity-75 transition-colors group/link"
+                    style={{ color: isDark ? '#ffffff' : '#06b6d4' }}
                     whileHover={{ x: 5 }}
                   >
                     <span className="font-medium">Read on LinkedIn</span>
@@ -154,7 +159,7 @@ export function LinkedInArticles() {
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <Card className="max-w-4xl mx-auto p-8 bg-gradient-to-br from-white/95 to-slate-50/95 backdrop-blur-sm border-0 shadow-xl">
+          <Card className="max-w-4xl mx-auto p-8 bg-transparent backdrop-blur-sm border-0 dark:border-slate-700 shadow-xl">
             <CardContent className="p-0 space-y-4">
               <motion.div
                 className="w-16 h-16 mx-auto bg-gradient-to-r from-vibrant-cyan to-vibrant-purple rounded-full flex items-center justify-center"
@@ -165,10 +170,10 @@ export function LinkedInArticles() {
               </motion.div>
               
               <div className="space-y-2">
-                <h3 className="text-xl font-semibold text-gray-800">
+                <h3 className="text-xl font-semibold" style={{ color: isDark ? '#ffffff' : '#1f2937' }}>
                   Follow for More Insights
                 </h3>
-                <p className="text-gray-600">
+                <p style={{ color: isDark ? '#ffffff' : '#4b5563' }}>
                   Connect with me on LinkedIn for regular updates on leadership, 
                   entrepreneurship, and professional development.
                 </p>

@@ -1,4 +1,6 @@
+/// <reference path="../vite-env.d.ts" />
 import React from "react";
+import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { LinkedinIcon, MailIcon, SparklesIcon, RocketIcon } from "lucide-react";
 import { motion } from "motion/react";
@@ -10,10 +12,13 @@ interface HeroProps {
 }
 
 export function Hero({ onContactClick }: HeroProps) {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
       {/* Constellation background */}
-      <div className="absolute inset-0 bg-slate-900" />
+      <div className="absolute inset-0 bg-slate-900 dark:bg-slate-50" />
       
       {/* Animated constellation network */}
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
@@ -21,6 +26,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="120" cy="180" r="2.5"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.4, 0.9, 0.4],
             scale: [0.7, 1.3, 0.7]
@@ -30,6 +36,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="280" cy="120" r="3"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.3, 1, 0.3],
             scale: [0.8, 1.4, 0.8]
@@ -39,6 +46,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="450" cy="80" r="2"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.5, 0.8, 0.5],
             scale: [0.6, 1.1, 0.6]
@@ -48,6 +56,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="620" cy="140" r="2.5"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.4, 0.9, 0.4],
             scale: [0.7, 1.2, 0.7]
@@ -57,6 +66,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="780" cy="200" r="3"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.3, 1, 0.3],
             scale: [0.8, 1.3, 0.8]
@@ -66,6 +76,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="920" cy="160" r="2"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.5, 0.8, 0.5],
             scale: [0.6, 1.0, 0.6]
@@ -76,6 +87,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="80" cy="320" r="2.5"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.4, 0.9, 0.4],
             scale: [0.7, 1.2, 0.7]
@@ -85,6 +97,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="220" cy="280" r="3"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.3, 1, 0.3],
             scale: [0.8, 1.4, 0.8]
@@ -94,6 +107,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="380" cy="350" r="2"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.5, 0.8, 0.5],
             scale: [0.6, 1.1, 0.6]
@@ -103,6 +117,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="520" cy="320" r="2.5"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.4, 0.9, 0.4],
             scale: [0.7, 1.3, 0.7]
@@ -112,6 +127,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="680" cy="380" r="3"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.3, 1, 0.3],
             scale: [0.8, 1.2, 0.8]
@@ -121,6 +137,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="820" cy="340" r="2"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.5, 0.8, 0.5],
             scale: [0.6, 1.0, 0.6]
@@ -131,6 +148,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="150" cy="480" r="2.5"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.4, 0.9, 0.4],
             scale: [0.7, 1.2, 0.7]
@@ -140,6 +158,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="320" cy="520" r="3"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.3, 1, 0.3],
             scale: [0.8, 1.3, 0.8]
@@ -149,6 +168,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="480" cy="480" r="2"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.5, 0.8, 0.5],
             scale: [0.6, 1.1, 0.6]
@@ -158,6 +178,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="640" cy="520" r="2.5"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.4, 0.9, 0.4],
             scale: [0.7, 1.2, 0.7]
@@ -167,6 +188,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="800" cy="480" r="3"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.3, 1, 0.3],
             scale: [0.8, 1.4, 0.8]
@@ -177,6 +199,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="100" cy="680" r="2"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.5, 0.8, 0.5],
             scale: [0.6, 1.0, 0.6]
@@ -186,6 +209,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="280" cy="720" r="2.5"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.4, 0.9, 0.4],
             scale: [0.7, 1.2, 0.7]
@@ -195,6 +219,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="460" cy="680" r="3"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.3, 1, 0.3],
             scale: [0.8, 1.3, 0.8]
@@ -204,6 +229,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="620" cy="720" r="2"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.5, 0.8, 0.5],
             scale: [0.6, 1.1, 0.6]
@@ -213,6 +239,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="780" cy="680" r="2.5"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.4, 0.9, 0.4],
             scale: [0.7, 1.2, 0.7]
@@ -222,6 +249,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.circle
           cx="920" cy="720" r="2"
           fill="#d1d5db"
+          className="dark:fill-slate-700"
           animate={{ 
             opacity: [0.5, 0.8, 0.5],
             scale: [0.6, 1.0, 0.6]
@@ -233,6 +261,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="120" y1="180" x2="280" y2="120"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.8"
           opacity="0.5"
           animate={{ 
@@ -244,6 +273,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="280" y1="120" x2="450" y2="80"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.6"
           opacity="0.4"
           animate={{ 
@@ -255,6 +285,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="450" y1="80" x2="620" y2="140"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.7"
           opacity="0.45"
           animate={{ 
@@ -266,6 +297,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="620" y1="140" x2="780" y2="200"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.8"
           opacity="0.5"
           animate={{ 
@@ -277,6 +309,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="780" y1="200" x2="920" y2="160"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.6"
           opacity="0.4"
           animate={{ 
@@ -290,6 +323,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="120" y1="180" x2="80" y2="320"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.7"
           opacity="0.45"
           animate={{ 
@@ -301,6 +335,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="280" y1="120" x2="220" y2="280"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.8"
           opacity="0.5"
           animate={{ 
@@ -312,6 +347,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="450" y1="80" x2="380" y2="350"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.6"
           opacity="0.4"
           animate={{ 
@@ -323,6 +359,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="620" y1="140" x2="520" y2="320"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.7"
           opacity="0.45"
           animate={{ 
@@ -334,6 +371,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="780" y1="200" x2="680" y2="380"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.8"
           opacity="0.5"
           animate={{ 
@@ -345,6 +383,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="920" y1="160" x2="820" y2="340"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.6"
           opacity="0.4"
           animate={{ 
@@ -358,6 +397,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="80" y1="320" x2="220" y2="280"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.5"
           opacity="0.35"
           animate={{ 
@@ -369,6 +409,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="220" y1="280" x2="380" y2="350"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.6"
           opacity="0.4"
           animate={{ 
@@ -380,6 +421,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="380" y1="350" x2="520" y2="320"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.5"
           opacity="0.35"
           animate={{ 
@@ -391,6 +433,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="520" y1="320" x2="680" y2="380"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.6"
           opacity="0.4"
           animate={{ 
@@ -402,6 +445,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="680" y1="380" x2="820" y2="340"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.5"
           opacity="0.35"
           animate={{ 
@@ -415,6 +459,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="150" y1="480" x2="320" y2="520"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.7"
           opacity="0.45"
           animate={{ 
@@ -426,6 +471,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="320" y1="520" x2="480" y2="480"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.6"
           opacity="0.4"
           animate={{ 
@@ -437,6 +483,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="480" y1="480" x2="640" y2="520"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.7"
           opacity="0.45"
           animate={{ 
@@ -448,6 +495,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="640" y1="520" x2="800" y2="480"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.6"
           opacity="0.4"
           animate={{ 
@@ -461,6 +509,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="100" y1="680" x2="280" y2="720"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.5"
           opacity="0.3"
           animate={{ 
@@ -472,6 +521,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="280" y1="720" x2="460" y2="680"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.6"
           opacity="0.35"
           animate={{ 
@@ -483,6 +533,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="460" y1="680" x2="620" y2="720"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.5"
           opacity="0.3"
           animate={{ 
@@ -494,6 +545,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="620" y1="720" x2="780" y2="680"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.6"
           opacity="0.35"
           animate={{ 
@@ -505,6 +557,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="780" y1="680" x2="920" y2="720"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.5"
           opacity="0.3"
           animate={{ 
@@ -518,6 +571,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="120" y1="180" x2="220" y2="280"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.4"
           opacity="0.25"
           animate={{ 
@@ -529,6 +583,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="280" y1="120" x2="380" y2="350"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.4"
           opacity="0.25"
           animate={{ 
@@ -540,6 +595,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="450" y1="80" x2="520" y2="320"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.4"
           opacity="0.25"
           animate={{ 
@@ -551,6 +607,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="620" y1="140" x2="680" y2="380"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.4"
           opacity="0.25"
           animate={{ 
@@ -562,6 +619,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="780" y1="200" x2="820" y2="340"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.4"
           opacity="0.25"
           animate={{ 
@@ -575,6 +633,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="80" y1="320" x2="150" y2="480"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.3"
           opacity="0.2"
           animate={{ 
@@ -586,6 +645,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="220" y1="280" x2="320" y2="520"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.3"
           opacity="0.2"
           animate={{ 
@@ -597,6 +657,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="380" y1="350" x2="480" y2="480"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.3"
           opacity="0.2"
           animate={{ 
@@ -608,6 +669,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="520" y1="320" x2="640" y2="520"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.3"
           opacity="0.2"
           animate={{ 
@@ -619,6 +681,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="680" y1="380" x2="800" y2="480"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.3"
           opacity="0.2"
           animate={{ 
@@ -630,6 +693,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="820" y1="340" x2="920" y2="720"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.3"
           opacity="0.2"
           animate={{ 
@@ -643,6 +707,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="120" y1="180" x2="480" y2="480"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.2"
           opacity="0.15"
           animate={{ 
@@ -654,6 +719,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="280" y1="120" x2="640" y2="520"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.2"
           opacity="0.15"
           animate={{ 
@@ -665,6 +731,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="450" y1="80" x2="800" y2="480"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.2"
           opacity="0.15"
           animate={{ 
@@ -676,6 +743,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="620" y1="140" x2="100" y2="680"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.2"
           opacity="0.15"
           animate={{ 
@@ -687,6 +755,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="780" y1="200" x2="280" y2="720"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.2"
           opacity="0.15"
           animate={{ 
@@ -698,6 +767,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="920" y1="160" x2="460" y2="680"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.2"
           opacity="0.15"
           animate={{ 
@@ -711,6 +781,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="150" y1="480" x2="100" y2="680"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.4"
           opacity="0.25"
           animate={{ 
@@ -722,6 +793,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="320" y1="520" x2="280" y2="720"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.4"
           opacity="0.25"
           animate={{ 
@@ -733,6 +805,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="480" y1="480" x2="460" y2="680"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.4"
           opacity="0.25"
           animate={{ 
@@ -744,6 +817,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="640" y1="520" x2="620" y2="720"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.4"
           opacity="0.25"
           animate={{ 
@@ -755,6 +829,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="800" y1="480" x2="780" y2="680"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.4"
           opacity="0.25"
           animate={{ 
@@ -768,6 +843,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="80" y1="320" x2="620" y2="720"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.15"
           opacity="0.1"
           animate={{ 
@@ -779,6 +855,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="220" y1="280" x2="780" y2="680"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.15"
           opacity="0.1"
           animate={{ 
@@ -790,6 +867,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="380" y1="350" x2="920" y2="720"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.15"
           opacity="0.1"
           animate={{ 
@@ -801,6 +879,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="520" y1="320" x2="100" y2="680"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.15"
           opacity="0.1"
           animate={{ 
@@ -812,6 +891,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="680" y1="380" x2="280" y2="720"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.15"
           opacity="0.1"
           animate={{ 
@@ -823,6 +903,7 @@ export function Hero({ onContactClick }: HeroProps) {
         <motion.line
           x1="820" y1="340" x2="460" y2="680"
           stroke="#d1d5db"
+          className="dark:stroke-slate-700"
           strokeWidth="0.15"
           opacity="0.1"
           animate={{ 
@@ -845,6 +926,7 @@ export function Hero({ onContactClick }: HeroProps) {
             src={logoImage}
             alt="Peter Unsworth LLC Logo"
             className="w-20 h-20"
+            style={{ filter: isDark ? 'brightness(0) invert(1)' : 'none' }}
           />
         </motion.div>
         
@@ -855,19 +937,22 @@ export function Hero({ onContactClick }: HeroProps) {
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-slate-700 to-slate-800 text-white text-sm mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-slate-700 to-slate-800 dark:from-slate-200 dark:to-slate-300 text-white dark:text-slate-900 text-sm mb-6"
           >
-            <SparklesIcon className="w-4 h-4 text-vibrant-teal animate-color-shift" />
+            <SparklesIcon className="w-4 h-4 text-vibrant-teal dark:text-vibrant-teal-light animate-color-shift" />
             Available to Chat
-            <SparklesIcon className="w-4 h-4 text-vibrant-orange animate-color-shift" />
+            <SparklesIcon className="w-4 h-4 text-vibrant-orange dark:text-vibrant-orange-light animate-color-shift" />
           </motion.div>
           
           <div className="p-8">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight font-bold mb-4">
+            <h1 
+              className="text-4xl md:text-6xl lg:text-7xl tracking-tight font-bold mb-4"
+              style={{ color: isDark ? '#FFFFFF' : '#0f172a' }}
+            >
             Peter Unsworth
           </h1>
-          <motion.p 
-              className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto mb-6"
+            <motion.p 
+              className="text-xl md:text-2xl text-gray-200 dark:text-slate-800 max-w-2xl mx-auto mb-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -875,7 +960,7 @@ export function Hero({ onContactClick }: HeroProps) {
               Technical Strategy & Consulting • Talent Recruitment<br />Digital Solutions
             </motion.p>
             <motion.p 
-              className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed"
+              className="text-lg text-gray-300 dark:text-slate-700 max-w-3xl mx-auto leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
@@ -903,7 +988,7 @@ export function Hero({ onContactClick }: HeroProps) {
               <Button 
                 size="lg" 
                 onClick={onContactClick}
-                className="px-8 bg-gradient-to-r from-slate-700 to-slate-800 hover:from-vibrant-teal hover:to-vibrant-cyan text-white border-0 transition-all duration-300 cursor-pointer"
+                className="px-8 bg-gradient-to-r from-slate-700 to-slate-800 dark:from-slate-200 dark:to-slate-300 hover:from-vibrant-teal hover:to-vibrant-cyan dark:hover:from-vibrant-teal dark:hover:to-vibrant-cyan text-white dark:text-slate-900 border-0 transition-all duration-300 cursor-pointer"
               >
                 <MailIcon className="mr-2 h-4 w-4" />
                 Get In Touch
@@ -914,7 +999,7 @@ export function Hero({ onContactClick }: HeroProps) {
                 variant="outline" 
                 size="lg" 
                 onClick={() => window.open('https://www.linkedin.com/in/peterunsworth/', '_blank')}
-                className="px-8 border-2 border-slate-300 hover:border-vibrant-purple hover:text-vibrant-purple transition-all duration-300 cursor-pointer"
+                className="px-8 border-2 border-gray-300 dark:border-slate-600 hover:border-vibrant-purple hover:text-vibrant-purple dark:hover:border-vibrant-purple dark:hover:text-vibrant-purple transition-all duration-300 cursor-pointer text-slate-800 dark:text-white bg-transparent dark:bg-transparent"
               >
                 <LinkedinIcon className="mr-2 h-4 w-4" />
                 LinkedIn Profile
@@ -929,8 +1014,8 @@ export function Hero({ onContactClick }: HeroProps) {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-8 h-8 rounded-full bg-gradient-to-r from-vibrant-orange to-vibrant-teal flex items-center justify-center animate-vibrant-glow">
-            <RocketIcon className="w-4 h-4 text-white" />
+          <div className="w-8 h-8 rounded-full bg-gradient-to-r from-vibrant-orange to-vibrant-teal dark:from-vibrant-orange-light dark:to-vibrant-teal-light flex items-center justify-center animate-vibrant-glow">
+            <RocketIcon className="w-4 h-4 text-white dark:text-slate-900" />
           </div>
         </motion.div>
       </div>

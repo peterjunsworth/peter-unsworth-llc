@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { LinkedinIcon, MailIcon, ExternalLinkIcon, MessageCircleIcon, SparklesIcon } from "lucide-react";
@@ -9,10 +10,13 @@ interface ContactProps {
 }
 
 export function Contact({ onContactClick }: ContactProps) {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  
   return (
     <section className="py-20 px-4 relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-slate-50 to-slate-100" />
+      {/* Background */}
+      <div className="absolute inset-0 bg-slate-900 dark:bg-slate-50" />
       
       {/* Floating elements */}
       <motion.div
@@ -40,19 +44,19 @@ export function Contact({ onContactClick }: ContactProps) {
           viewport={{ once: true }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-vibrant-teal to-vibrant-cyan text-white text-sm mb-4 shadow-lg"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-vibrant-teal to-vibrant-cyan dark:from-vibrant-teal-dark dark:to-vibrant-cyan-dark text-white dark:text-slate-900 text-sm mb-4 shadow-lg"
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <SparklesIcon className="w-4 h-4 text-white" />
+            <SparklesIcon className="w-4 h-4 text-white dark:text-slate-900" />
             Ready to Collaborate
-            <SparklesIcon className="w-4 h-4 text-white" />
+            <SparklesIcon className="w-4 h-4 text-white dark:text-slate-900" />
           </motion.div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight bg-gradient-to-r from-vibrant-teal via-vibrant-purple to-vibrant-orange bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight text-slate-800 dark:text-slate-100">
             Let's Connect
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-700 dark:text-slate-200 max-w-2xl mx-auto">
             Ready to discuss your technical strategy, talent needs, or digital transformation? 
             I'm here to help bridge the gap between your business requirements and technical excellence.
           </p>
@@ -66,17 +70,19 @@ export function Contact({ onContactClick }: ContactProps) {
             viewport={{ once: true }}
             whileHover={{ y: -5 }}
           >
-            <Card className="hover:shadow-2xl transition-all duration-300 bg-white/95 backdrop-blur-sm border-0 h-full ring-1 ring-vibrant-teal">
+            <Card className="hover:shadow-2xl transition-all duration-300 bg-transparent backdrop-blur-sm border-0 dark:border-slate-700 h-full ring-1 ring-vibrant-teal dark:ring-vibrant-teal-dark">
               <CardHeader className="text-center">
                 <motion.div 
                   className="mx-auto w-16 h-16 rounded-2xl bg-gradient-to-r from-vibrant-teal to-vibrant-cyan flex items-center justify-center mb-4 shadow-lg"
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <MessageCircleIcon className="h-8 w-8 text-white" />
+                  <MessageCircleIcon className="h-8 w-8 text-white dark:text-slate-900" />
                 </motion.div>
-                <CardTitle className="text-vibrant-teal">Start a Conversation</CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardTitle className="text-vibrant-teal dark:text-vibrant-teal-light" style={{ color: isDark ? '#ffffff' : undefined }}>
+                  Start a Conversation
+                </CardTitle>
+                <CardDescription style={{ color: isDark ? '#ffffff' : '#4b5563' }}>
                   Discuss your project requirements, talent needs, or strategic initiatives
                 </CardDescription>
               </CardHeader>
@@ -84,7 +90,7 @@ export function Contact({ onContactClick }: ContactProps) {
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button 
                     onClick={onContactClick}
-                    className="w-full bg-gradient-to-r from-vibrant-teal to-vibrant-cyan hover:from-vibrant-teal-dark hover:to-vibrant-cyan-dark text-white border-0 transition-all duration-300 shadow-lg" 
+                    className="w-full bg-gradient-to-r from-vibrant-teal to-vibrant-cyan hover:from-vibrant-teal-dark hover:to-vibrant-cyan-dark dark:from-vibrant-teal-light dark:to-vibrant-cyan-light dark:hover:from-vibrant-teal dark:hover:to-vibrant-cyan text-white dark:text-slate-900 border-0 transition-all duration-300 shadow-lg" 
                     size="lg"
                   >
                     <MailIcon className="mr-2 h-4 w-4" />
@@ -113,17 +119,19 @@ export function Contact({ onContactClick }: ContactProps) {
             viewport={{ once: true }}
             whileHover={{ y: -5 }}
           >
-            <Card className="hover:shadow-2xl transition-all duration-300 bg-white/95 backdrop-blur-sm border-0 h-full ring-1 ring-vibrant-purple">
+            <Card className="hover:shadow-2xl transition-all duration-300 bg-transparent backdrop-blur-sm border-0 dark:border-slate-700 h-full ring-1 ring-vibrant-purple dark:ring-vibrant-purple-dark">
               <CardHeader className="text-center">
                 <motion.div 
                   className="mx-auto w-16 h-16 rounded-2xl bg-gradient-to-r from-vibrant-purple to-vibrant-orange flex items-center justify-center mb-4 shadow-lg"
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <ExternalLinkIcon className="h-8 w-8 text-white" />
+                  <ExternalLinkIcon className="h-8 w-8 text-white dark:text-slate-900" />
                 </motion.div>
-                <CardTitle className="text-vibrant-purple">Explore Our Ventures</CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardTitle className="text-vibrant-purple dark:text-vibrant-purple-light" style={{ color: isDark ? '#ffffff' : undefined }}>
+                  Explore Our Ventures
+                </CardTitle>
+                <CardDescription style={{ color: isDark ? '#ffffff' : '#4b5563' }}>
                   Learn more about our specialized services and solutions
                 </CardDescription>
               </CardHeader>
@@ -162,10 +170,10 @@ export function Contact({ onContactClick }: ContactProps) {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <Card className="p-8 bg-white/95 backdrop-blur-sm border-0 shadow-xl ring-1 ring-vibrant-cyan">
+          <Card className="p-8 bg-transparent backdrop-blur-sm border-0 dark:border-slate-700 shadow-xl ring-1 ring-vibrant-cyan dark:ring-vibrant-cyan-dark">
             <CardContent className="p-0">
-              <h3 className="text-xl lg:text-2xl mb-3 bg-gradient-to-r from-vibrant-cyan to-vibrant-teal bg-clip-text text-transparent">Professional Network</h3>
-              <p className="text-gray-600 mb-6">
+              <h3 className="text-xl lg:text-2xl mb-3" style={{ color: isDark ? '#ffffff' : '#06b6d4' }}>Professional Network</h3>
+              <p className="mb-6" style={{ color: isDark ? '#ffffff' : '#4b5563' }}>
                 Connect with me on LinkedIn to stay updated on industry insights, 
                 technical strategies, and talent opportunities.
               </p>
@@ -174,7 +182,7 @@ export function Contact({ onContactClick }: ContactProps) {
                   variant="outline" 
                   size="lg" 
                   onClick={() => window.open('https://www.linkedin.com/in/peterunsworth/', '_blank')}
-                  className="px-8 border-2 border-vibrant-cyan hover:border-vibrant-cyan hover:text-vibrant-cyan hover:bg-gradient-to-r hover:from-slate-50 hover:to-gray-50"
+                  className="px-8 border-2 border-vibrant-cyan hover:border-vibrant-cyan hover:text-vibrant-cyan dark:hover:text-vibrant-cyan hover:bg-gradient-to-r hover:from-slate-50 hover:to-gray-50 dark:hover:from-slate-800 dark:hover:to-gray-800 text-foreground"
                 >
                   <LinkedinIcon className="mr-2 h-4 w-4" />
                   LinkedIn: @peterunsworth

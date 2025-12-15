@@ -2,8 +2,11 @@ import React from "react";
 import { Separator } from "./ui/separator";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import logoImage from "../assets/images/logo-square.png";
+import { useTheme } from "next-themes";
 
 export function Footer() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   return (
     <footer className="border-t bg-muted/30">
       <div className="max-w-6xl mx-auto px-4 py-12">
@@ -14,8 +17,9 @@ export function Footer() {
                 src={logoImage}
                 alt="Peter Unsworth LLC Logo"
                 className="w-20 h-20 rounded-lg"
+                style={{ filter: isDark ? 'brightness(0) invert(1)' : 'none' }}
               />
-              <h3 className="tracking-tight">Peter Unsworth</h3>
+              <h3 className="tracking-tight text-foreground">Peter Unsworth</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Technical Strategy & Consulting at the intersection of business requirements 
@@ -24,7 +28,7 @@ export function Footer() {
           </div>
           
           <div className="space-y-3">
-            <h4 className="text-sm">Companies</h4>
+            <h4 className="text-sm text-foreground">Companies</h4>
             <div className="space-y-2 text-sm text-muted-foreground">
               <div>Peter Unsworth LLC</div>
               <div>
@@ -51,7 +55,7 @@ export function Footer() {
           </div>
           
           <div className="space-y-3">
-            <h4 className="text-sm">Services</h4>
+            <h4 className="text-sm text-foreground">Services</h4>
             <div className="space-y-2 text-sm text-muted-foreground">
               <div>Technical Strategy</div>
               <div>Talent Recruitment</div>
