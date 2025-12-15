@@ -8,6 +8,8 @@ import { Contact } from "./components/Contact";
 import { ContactForm } from "./components/ContactForm";
 import { Footer } from "./components/Footer";
 import { AnimatedBackground } from "./components/AnimatedBackground";
+import { SeasonalEffects, getSeason, type Season } from "./components/SeasonalEffects";
+import { SeasonSwitcher } from "./components/SeasonSwitcher";
 import { Button } from "./components/ui/button";
 import { ArrowLeftIcon } from "lucide-react";
 import { motion } from "motion/react";
@@ -15,6 +17,7 @@ import { Toaster } from "./components/ui/sonner";
 
 export default function App() {
   const [showContactForm, setShowContactForm] = useState(false);
+  const [season, setSeason] = useState<Season>(() => getSeason());
 
   useEffect(() => {
     const scrollToHash = () => {
@@ -48,6 +51,8 @@ export default function App() {
     return (
       <div className="min-h-screen relative">
         <AnimatedBackground />
+        <SeasonalEffects season={season} />
+        <SeasonSwitcher season={season} onSeasonChange={setSeason} />
         <div className="fixed top-4 left-4 z-50">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -74,6 +79,8 @@ export default function App() {
   return (
     <div className="min-h-screen relative">
       <AnimatedBackground />
+      <SeasonalEffects season={season} />
+      <SeasonSwitcher season={season} onSeasonChange={setSeason} />
       <section id="hero" className="scroll-mt-24">
         <Hero onContactClick={() => setShowContactForm(true)} />
       </section>
