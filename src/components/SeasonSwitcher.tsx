@@ -19,6 +19,7 @@ const seasonLabels: Record<Season, string> = {
   spring: "Spring",
   summer: "Summer",
   autumn: "Fall",
+  none: "None",
 };
 
 export function SeasonSwitcher({ season, onSeasonChange }: SeasonSwitcherProps) {
@@ -68,6 +69,12 @@ export function SeasonSwitcher({ season, onSeasonChange }: SeasonSwitcherProps) 
             className="text-slate-900 dark:text-slate-50 hover:text-slate-900 dark:hover:text-slate-100 focus:text-slate-900 dark:focus:text-slate-100"
           >
             {seasonLabels.autumn}
+          </SelectItem>
+          <SelectItem 
+            value="none"
+            className="text-slate-900 dark:text-slate-50 hover:text-slate-900 dark:hover:text-slate-100 focus:text-slate-900 dark:focus:text-slate-100"
+          >
+            {seasonLabels.none}
           </SelectItem>
         </SelectContent>
       </Select>

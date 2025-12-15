@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { motion } from "motion/react";
 
-export type Season = "winter" | "spring" | "summer" | "autumn";
+export type Season = "winter" | "spring" | "summer" | "autumn" | "none";
 
 export function getSeason(): Season {
   const month = new Date().getMonth() + 1; // 1-12
@@ -240,6 +240,10 @@ interface SeasonalEffectsProps {
 export function SeasonalEffects({ season: seasonProp }: SeasonalEffectsProps) {
   const defaultSeason = useMemo(() => getSeason(), []);
   const season = seasonProp ?? defaultSeason;
+
+  if (season === "none") {
+    return null;
+  }
 
   if (season === "winter") {
     return (
