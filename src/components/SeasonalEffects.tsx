@@ -250,18 +250,15 @@ export function SeasonalEffects({ season: seasonProp }: SeasonalEffectsProps) {
       <div className="fixed inset-0 pointer-events-none z-30 overflow-hidden">
         {Array.from({ length: 30 }).map((_, i) => {
           // Create depth perspective: some flakes closer (larger), some farther (smaller)
-          // Extremely close: 200-300px, very close: 40-60px, close: 24-40px, medium: 16-24px, far: 10-16px
+          // Very close: 30-40px, close: 24-30px, medium: 16-24px, far: 10-16px
           const depth = Math.random();
           let size;
-          if (depth > 0.9) {
-            // Extremely close - 5 times the largest normal size
-            size = 200 + Math.random() * 100; // 200-300px
-          } else if (depth > 0.75) {
+          if (depth > 0.75) {
             // Very close
-            size = 40 + Math.random() * 20; // 40-60px
+            size = 30 + Math.random() * 10; // 30-40px
           } else if (depth > 0.5) {
             // Close
-            size = 24 + Math.random() * 16; // 24-40px
+            size = 24 + Math.random() * 6; // 24-30px
           } else if (depth > 0.25) {
             // Medium
             size = 16 + Math.random() * 8; // 16-24px
@@ -270,7 +267,7 @@ export function SeasonalEffects({ season: seasonProp }: SeasonalEffectsProps) {
             size = 10 + Math.random() * 6; // 10-16px
           }
           // Closer flakes fall faster, farther flakes fall slower - all slowed down more
-          const fallSpeed = depth > 0.9 ? 6 + Math.random() * 4 : depth > 0.75 ? 8 + Math.random() * 4 : depth > 0.5 ? 10 + Math.random() * 5 : depth > 0.25 ? 12 + Math.random() * 6 : 15 + Math.random() * 8;
+          const fallSpeed = depth > 0.75 ? 8 + Math.random() * 4 : depth > 0.5 ? 10 + Math.random() * 5 : depth > 0.25 ? 12 + Math.random() * 6 : 15 + Math.random() * 8;
           
           return (
             <Snowflake

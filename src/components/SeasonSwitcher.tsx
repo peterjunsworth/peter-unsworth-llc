@@ -31,6 +31,7 @@ export function SeasonSwitcher({ season, onSeasonChange }: SeasonSwitcherProps) 
       <Select
         value={season}
         onValueChange={(value) => onSeasonChange(value as Season)}
+        aria-label="Select seasonal effect"
       >
         <SelectTrigger 
           className="w-[140px] bg-white/90 backdrop-blur-sm border-slate-200 dark:border-slate-700 hover:bg-white/95 shadow-md text-slate-900 dark:text-slate-50"
